@@ -1,0 +1,236 @@
+<FirstWindow>:
+    name: 'first'
+    BoxLayout:
+        orientation: 'vertical'
+        size: root.width,root.height
+        padding: 20
+        spacing: 20
+        TextInput:
+            id: usuario
+            font_size: 17
+            multiline: False
+            hint_text: 'Usuário'
+            halign: 'center'
+            padding: (0,40)
+            size_hint : None,None
+            size: 700,100
+            pos_hint:{'center_x':0.5}
+
+        TextInput:
+            font_size: 17
+            id: senha
+            multiline: False
+            hint_text: 'Senha'
+            password: True
+            halign: 'center'
+            padding: (0,40)
+            size_hint : None,None
+            size: 700,100
+            pos_hint:{'center_x':0.5}
+        Button:
+            font_size: 32
+            text: 'Entrar'
+            size_hint:(None,None)
+            size: 450,100
+            pos_hint:{'center_x':0.5}
+            on_release: root.entrar()
+        Button:
+            font_size: 32
+            text: 'Cadastre-se'
+            size_hint:(None,None)
+            size: 450,100
+            pos_hint:{'center_x':0.5}
+            on_release: 
+                root.manager.transition.direction = 'left'
+                root.manager.current = 'Terceira'
+        Button:
+            background_color : (0,0,0,0)
+                
+            
+<SecondWindow>:
+    name: 'second'
+    BoxLayout:
+        size: root.width,root.height
+        orientation: 'vertical'
+        padding:50
+        spacing:20
+        GridLayout:
+            spacing: 30
+            cols : 2
+            BoxLayout:
+                orientation: 'vertical'
+                spacing: 10
+                Button:
+                    font_size: 32
+                    id:mostrar
+                    text: 'Ocultar'
+                    on_release: root.ocultar()
+                Label:
+                    font_size: 32
+                    id:valor
+            BoxLayout:
+                orientation:'vertical'
+                spacing: 10
+                Button:
+                    font_size: 32
+                    text: 'Transferência'
+                    on_release: root.transferir()
+                Button:
+                    font_size: 32
+                    text: 'Depositar'
+                    on_release: root.deposito()
+
+
+        Label:
+            font_size: 32
+            id: mensagem
+     
+   
+
+
+
+
+<TerceiraWindow>:
+    name: 'Terceira'
+    BoxLayout:
+        orientation: 'vertical'
+        padding:50
+        spacing:20
+        TextInput:
+            id: usuario_cadastro
+            multiline: False
+            font_size: 17
+            hint_text: 'Digite aqui o seu nome de usuario'
+            halign: 'center'
+            padding: (0,40)
+            size_hint : None,None
+            size: 700,100
+            pos_hint:{'center_x':0.5}
+
+
+        TextInput:
+            id: senha_cadastro
+            font_size: 17
+            multiline: False
+            hint_text: 'Digite aqui sua senha'
+            password: True
+            halign: 'center'
+            padding: (0,40)
+            size_hint : None,None
+            size: 700,100
+            pos_hint:{'center_x':0.5}
+        
+        TextInput:
+            id: nacionalidade_cadastro
+            font_size: 17
+            multiline: False
+            hint_text: 'Digite aqui a sigla de seu País'
+            halign: 'center'
+            padding: (0,40)
+            size_hint : None,None
+            size: 700,100
+            pos_hint:{'center_x':0.5}
+
+        
+        Button:
+            text: "Cadastrar"
+            font_size: 32
+            on_release: 
+                root.cadastro()
+        
+        Button:
+            text: "Voltar"
+            font_size: 32
+            on_release: root.voltar()
+
+<QuartaWindow>:
+    name: 'quarta'
+    BoxLayout:
+        size:root.width,root.height
+        padding: 10
+        spacing: 20
+        orientation: 'vertical'
+        TextInput:
+            id: valor_transferido
+            font_size: 17
+            hint_text: 'Digite aqui o valor a ser transferido'
+            halign: 'center'
+            padding: (0,40)
+            size_hint : None,None
+            size: 700,100
+            pos_hint:{'center_x':0.5}
+
+        TextInput:
+            id: pessoa_transferida
+            hint_text: 'Digite aqui o nome do usuario que irá receber'
+            halign: 'center'
+            padding: (0,40)
+            font_size: 17
+            size_hint : None,None
+            size: 700,100
+            pos_hint:{'center_x':0.5}
+        
+        Button:
+            text: 'Transferir'
+            font_size: 32
+            size_hint: None,None
+            size: 700,100
+            pos_hint:{'center_x':0.5}
+            on_release: root.transferir()
+        Label:
+            id: aviso
+            font_size: 32
+        
+        Button:
+            background_color: 0,0,0,0
+
+        Button:
+            text: 'Voltar'
+            size_hint: None,None
+            size: 450,100
+            font_size: 32
+            pos_hint:{'center_x':0.5}
+            on_release: root.voltar()
+
+        Button:
+            background_color: 0,0,0,0
+
+<QuintaWindow>:
+    name: 'quinta'
+    BoxLayout:
+        padding: 20
+        spacing: 20
+        size:root.width,root.height
+        orientation: 'vertical'
+        TextInput:
+            id: valor_deposito
+            hint_text: 'Digite o valor do deposito'
+            halign: 'center'
+            padding: (0,40)
+            size_hint : None,None
+            size: 700,100
+            font_size: 17
+            pos_hint:{'center_x':0.5}
+        Button:
+            text: 'Depositar'
+            font_size: 32
+            size_hint: None,None
+            size: 700,100
+            pos_hint:{'center_x':0.5}
+            on_release: root.depositar()
+        
+        Button:
+            background_color: 0,0,0,0
+
+        Button:
+            text: 'Voltar'
+            size_hint: None,None
+            size: 450,100
+            font_size: 32
+            pos_hint:{'center_x':0.5}
+            on_release: root.voltar()
+
+        Button:
+            background_color: 0,0,0,0
+
+
