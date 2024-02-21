@@ -128,6 +128,8 @@ class QuartaWindow(Screen):
         arquivo = open('usuarios.txt','r')
         usuarios = arquivo.readlines()
 
+        if valor < 0:
+            return 0
         
 
         for elemento in usuarios:
@@ -202,16 +204,25 @@ class QuintaWindow(Screen):
         self.manager.transition.direction = 'right'
         self.manager.current = 'second'
     
+    def on_enter(self):
+        if user[4][:-1] == 'BR':
+            self.ids.saldo_restante.text = f'{user[1]}, saldo atual R${user[3]}'
+        else:
+            self.ids.saldo_restante.text = f'{user[1]}, saldo atual US${user[3]}'
     def depositar(self):
         
         global user
         
+        
+
         if self.ids.valor_deposito.text == "":
             return 0
 
         
         valor = float(self.ids.valor_deposito.text)
-        
+
+        if valor < 0:
+            return 0
         
         arquivo = open('usuarios.txt','r+')
         cadastrados = arquivo.readlines()
@@ -235,7 +246,14 @@ class QuintaWindow(Screen):
         
         for elemento in cadastrados:
             arquivo.write(elemento)
+        
         arquivo.close()
+
+        if user[4][:-1] == 'BR':
+            self.ids.saldo_restante.text = f'{user[1]}, saldo atual R${user[3]}'
+        else:
+            self.ids.saldo_restante.text = f'{user[1]}, saldo atual US${user[3]}'
+
  
 
 class Sistema(App):
