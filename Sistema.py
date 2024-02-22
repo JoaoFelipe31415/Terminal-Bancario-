@@ -116,9 +116,14 @@ class QuartaWindow(Screen):
         
         global user
 
-        valor = float(self.ids.valor_transferido.text)
-        pessoa_destino = self.ids.pessoa_transferida.text
 
+
+        try:
+            valor = float(self.ids.valor_transferido.text)
+            pessoa_destino = self.ids.pessoa_transferida.text
+        except:
+            return 0
+        
         arquivo = open('usuarios.txt','r')
         usuarios = arquivo.readlines()
 

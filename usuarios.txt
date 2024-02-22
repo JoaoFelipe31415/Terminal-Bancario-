@@ -1,4 +1,4 @@
-01,Felipe,123,7000.0,BR
+01,Felipe,123,6300.0,BR
 02,Mariana,ABC456,2700.0,USA
 03,Lais,123,1500.0,BR
 04,Mario,1234,3600.0,BR
@@ -6,4 +6,4 @@
 06,Israel,123,10564.0,BR
 07,Thyago,123,0.0,BR
 08,Bartolomeu,1456,1040.0,USA
-09,Cicero,123,600.0,USA
+09,Cicero,123,740.0,USA
