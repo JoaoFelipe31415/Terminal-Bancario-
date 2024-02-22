@@ -33,14 +33,8 @@ class SecondWindow(Screen):
     __controle = True
     def on_enter(self):
         
-        arquivo = open('usuarios.txt','r')
-        lista = arquivo.readlines()
 
-        pessoa = lista[int(user[0])-1]
-        pessoa = pessoa.split(',')
-        saldo = pessoa[3]
-        
-        arquivo.close()
+        saldo = user[3]
         
         self.ids.mensagem.text = f'Olá, {user[1]}!'
         
